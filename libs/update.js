@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-22 15:47:35
- * @LastEditTime: 2021-07-22 15:47:35
+ * @LastEditTime: 2021-07-22 16:46:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ltsn/libs/update.js
@@ -9,6 +9,8 @@
 
 const axios = require('axios')
 const compareVersions = require('compare-versions')
+const terminalLink = require('terminal-link')
+const color = require('cli-color')
 
 module.exports = async (v) => {
   // 拿到所有的 Node 版本
@@ -25,5 +27,9 @@ module.exports = async (v) => {
     // 踢出去 file 这个字段，其他的全部返回
     const { files, ...rest } = it
     return { ...rest }
+  }).map(it => {
+    const { files, ...rest } = it
+    const doc = color.yellow(terminalLink('API', `https://nodejs.org/dist/${it.version}/docs/api/documentation.html`))
+    return { ...rest, doc }
   })
 }

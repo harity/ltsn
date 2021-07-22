@@ -1,6 +1,6 @@
 {
   "name": "ltsn-harity",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "axios": "^0.21.1",
     "cli-color": "^2.0.0",
     "cli-table": "^0.3.6",
-    "compare-versions": "^3.6.0"
+    "compare-versions": "^3.6.0",
+    "terminal-link": "^3.0.0"
   }
 }
